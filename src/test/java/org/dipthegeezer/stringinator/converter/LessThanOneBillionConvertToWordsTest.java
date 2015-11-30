@@ -43,7 +43,13 @@ public class LessThanOneBillionConvertToWordsTest {
                 convertToWords.convert(900000000));
         assertEquals("nine hundred million and ninety nine",
                 convertToWords.convert(900000099));
-        assertEquals("nine hundred million one hundred thousand and one",
-                convertToWords.convert(900100001));
+        assertEquals("nine hundred million and one hundred thousand",
+                convertToWords.convert(900100000));
+        assertEquals("nine hundred million and one hundred",
+                convertToWords.convert(900000100));
+        assertEquals("nine hundred million and ten thousand",
+                convertToWords.convert(900010000));
+        assertEquals("nine hundred million and one thousand",
+                convertToWords.convert(900001000));
     }
 }

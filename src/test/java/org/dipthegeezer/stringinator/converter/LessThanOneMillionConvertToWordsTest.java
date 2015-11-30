@@ -35,5 +35,7 @@ public class LessThanOneMillionConvertToWordsTest {
                 convertToWords.convert(999999));
         assertEquals("nine hundred thousand and nine",
                 convertToWords.convert(900009));
+        assertEquals("nine hundred thousand and nine hundred",
+                convertToWords.convert(900900));
     }
 }

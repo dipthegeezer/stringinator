@@ -14,7 +14,7 @@ public class LessThanOneMillionConvertToWords implements ConvertToWords {
         }
         else {
             return lessThanOneThousandConvertToWords.convert(number / 1000) + " thousand"
-                    + (number % 1000 <= 99 ? " and " : " ")
+                    + (number % 1000 <= 99 || (number%1000)%100==0? " and " : " ")
                     + lessThanOneThousandConvertToWords.convert(number % 1000);
         }
     }
