@@ -10,6 +10,8 @@ public class LessThanOneHundredConvertToWords implements ConvertToWords {
     private ConvertToWords convertToWords = new LessThanTwentyConvertToWords();
 
     public String convert(Integer number) throws Exception {
+        if(number > 99) throw new Exception("Number is too large:" + number);
+
         if (number < 20) {
             return convertToWords.convert(number);
         }

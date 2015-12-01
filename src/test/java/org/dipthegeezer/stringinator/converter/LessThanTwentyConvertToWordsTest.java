@@ -26,4 +26,9 @@ public class LessThanTwentyConvertToWordsTest {
         assertEquals("zero", convertToWords.convert(0));
         assertEquals("thirteen", convertToWords.convert(13));
     }
+
+    @Test(expected=Exception.class)
+    public void testNumberTooLargeException() throws Exception {
+        convertToWords.convert(30);
+    }
 }

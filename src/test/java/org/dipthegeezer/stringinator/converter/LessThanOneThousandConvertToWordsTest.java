@@ -30,4 +30,9 @@ public class LessThanOneThousandConvertToWordsTest {
         assertEquals("one hundred and five", convertToWords.convert(105));
         assertEquals("one hundred and twenty three", convertToWords.convert(123));
     }
+
+    @Test(expected=Exception.class)
+    public void testNumberTooLargeException() throws Exception {
+        convertToWords.convert(1001);
+    }
 }

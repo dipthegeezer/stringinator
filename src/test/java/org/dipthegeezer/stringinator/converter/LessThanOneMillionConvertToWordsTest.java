@@ -38,4 +38,9 @@ public class LessThanOneMillionConvertToWordsTest {
         assertEquals("nine hundred thousand and nine hundred",
                 convertToWords.convert(900900));
     }
+
+    @Test(expected=Exception.class)
+    public void testNumberTooLargeException() throws Exception {
+        convertToWords.convert(1000000);
+    }
 }
