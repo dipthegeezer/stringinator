@@ -1,24 +1,26 @@
 package org.dipthegeezer.stringinator.converter;
 
 
+import org.dipthegeezer.stringinator.NumberTooLargeException;
+
 public class LessThanOneHundredConvertToWords implements ConvertToWords {
 
     private static final String[] numNames = {
             "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"
     };
 
-    private ConvertToWords convertToWords = new LessThanTwentyConvertToWords();
+    private static final LessThanTwentyConvertToWords lessThanTwentyConvertToWords = new LessThanTwentyConvertToWords();
 
-    public String convert(Integer number) throws Exception {
-        if(number > 99) throw new Exception("Number too large for this converter: " + number);
+    public String convert(Integer number) throws NumberTooLargeException {
+        if(number > 99) throw new NumberTooLargeException("Number too large for this converter: " + number);
 
         if (number < 20) {
-            return convertToWords.convert(number);
+            return lessThanTwentyConvertToWords.convert(number);
         }
         String s = numNames[number / 10 - 2];
         if (number % 10 == 0) {
             return s;
         }
-        return s + " " + convertToWords.convert(number % 10);
+        return s + " " + lessThanTwentyConvertToWords.convert(number % 10);
     }
 }

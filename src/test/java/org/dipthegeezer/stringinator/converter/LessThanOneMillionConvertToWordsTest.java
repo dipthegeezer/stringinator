@@ -1,5 +1,6 @@
 package org.dipthegeezer.stringinator.converter;
 
+import org.dipthegeezer.stringinator.NumberTooLargeException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class LessThanOneMillionConvertToWordsTest {
                 convertToWords.convert(900900));
     }
 
-    @Test(expected=Exception.class)
+    @Test(expected=NumberTooLargeException.class)
     public void testNumberTooLargeException() throws Exception {
         convertToWords.convert(1000000);
     }

@@ -1,12 +1,14 @@
 package org.dipthegeezer.stringinator.converter;
 
 
+import org.dipthegeezer.stringinator.NumberTooLargeException;
+
 public class LessThanOneBillionConvertToWords implements ConvertToWords {
 
-    private LessThanOneMillionConvertToWords lessThanOneMillionConvertToWords = new LessThanOneMillionConvertToWords();
+    private static final LessThanOneMillionConvertToWords lessThanOneMillionConvertToWords = new LessThanOneMillionConvertToWords();
 
-    public String convert(Integer number) throws Exception {
-        if (number > 999999999) throw new Exception("Number too large for this converter: " + number);
+    public String convert(Integer number) throws NumberTooLargeException {
+        if (number > 999999999) throw new NumberTooLargeException("Number too large for this converter: " + number);
         if (number <= 999999) {
             return lessThanOneMillionConvertToWords.convert(number);
         }
